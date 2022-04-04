@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _direction;
 
-    private float _jumpScale = 20f;
     private float _tapInterval = 0.35f;
     private float _lastTapTime;
 
 
     [SerializeField]
     private bool _intertedGravity = false;
+
+    public float JumpScale = 15f;
 
 
     private void Start()
@@ -45,10 +46,10 @@ public class PlayerController : MonoBehaviour
 
             if (_intertedGravity)
             {
-                _rigidbody.velocity = Vector2.down * _jumpScale;
+                _rigidbody.velocity = Vector2.down * JumpScale;
             }
             else
-                _rigidbody.velocity = Vector2.up * _jumpScale;
+                _rigidbody.velocity = Vector2.up * JumpScale;
         }
     }
 }
