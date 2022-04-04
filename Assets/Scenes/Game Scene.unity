@@ -331,6 +331,7 @@ MonoBehaviour:
   Borders:
   - {fileID: 2007687758}
   - {fileID: 2033558622}
+  ScoreText: {fileID: 892763064}
   PlayerSpeed: 10
   CameraSpeed: 10
   BackgroundSpeed: 1

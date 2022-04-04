@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,11 +10,15 @@ public class GameManager : MonoBehaviour
     public GameObject GameoverPanel;
     public GameObject[] Borders;
 
-    private Renderer _backgroundRenderer;
+    public Text ScoreText;
 
     public float PlayerSpeed;
     public float CameraSpeed;
     public float BackgroundSpeed;
+
+    private Renderer _backgroundRenderer;
+
+    [SerializeField] private float _score;
 
     public void Start()
     {
@@ -26,6 +31,9 @@ public class GameManager : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("Player") != null) 
         {
             Player.transform.position += new Vector3(PlayerSpeed * Time.deltaTime, 0, 0);
+
+            _score += 1 * Time.deltaTime;
+            ScoreText.text = ((int)_score).ToString();
         }
 
         MainCamera.transform.position += new Vector3(CameraSpeed * Time.deltaTime, 0, 0);
